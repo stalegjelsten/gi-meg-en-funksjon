@@ -95,7 +95,7 @@ function setup() {
 function draw() {
 
     let randNum = Math.floor(Math.random() * 361)
-    let mousePosColor = 100 - mouseY/height*80
+    let mousePosColor = 100 - mouseY/height*100
     if (mousePosColor < 55) {
         title.style("color", "#fff")
         mattitle.style("color", "#fff")
