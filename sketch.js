@@ -1,6 +1,9 @@
 let eqn
 let funksjon
 let pressCount = 0
+let funcNo = 1
+let saturation = 35
+let oldFuncNo = 1
 let funksjoner = [{
     "navn": "Herme&shy;funk&shy;sjonen",
     "matNavn": "Identitetsfunksjonen",
@@ -95,7 +98,6 @@ function setup() {
 
 function draw() {
 
-    let randNum = Math.floor(Math.random() * 361)
     let mouseYColor = 100 - (1 / 100) * (mouseY / height * 100) * (mouseY / height * 100)
     let mouseXColor = Math.floor(mouseX/width*360)
     if (mouseYColor < 55) {
@@ -109,7 +111,8 @@ function draw() {
         forklaring.style("color", "#000")
         eqn.style("color", "#000")
     }
-    background(color("hsb(" + mouseXColor + ", 35%, " + mouseYColor + "%)"))
+    let c = color("hsb(" + mouseXColor + ", " + saturation + "%, " + mouseYColor + "%)")
+    background(c)
 
     title.html("<h1>" + funksjon.navn + "</h1>")
 
@@ -128,7 +131,11 @@ function draw() {
 
 
 function mousePressed() {
-    funksjon = funksjoner[Math.floor(Math.random() * funksjoner.length)]
+    while (funcNo == oldFuncNo) {
+        funcNo = Math.floor(Math.random() * funksjoner.length)
+    }
+    oldFuncNo = funcNo
+    funksjon = funksjoner[funcNo]
     pressCount++
     redraw()
 }
