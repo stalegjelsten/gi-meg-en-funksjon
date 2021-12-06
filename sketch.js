@@ -7,7 +7,7 @@ let funksjoner = [{
         "forkl": "Gi tilbake det samme tallet."
     },
     {
-        "navn": "Positivitets&shy;funksjonen",
+        "navn": "Positivitets&shy;funksjonen ➕",
         "matNavn": "Absoluttverdifunksjonen",
         "formel": "y = \\vert x \\vert",
         "forkl": "Hvis tallet er positivt gir du tallet tilbake. Hvis tallet er negativt så tar du bort minustegnet og gir tallet tilbake."
@@ -19,13 +19,13 @@ let funksjoner = [{
         "forkl": "Doble tallet du får og gi det tilbake."
     },
     {
-        "navn": "Negativitets&shy;funksjonen",
+        "navn": "Negativitets&shy;funksjonen ➖",
         "matNavn": "Den negative absoluttverdifunksjonen",
         "formel": "y = - \\vert x \\vert",
         "forkl": "Hvis tallet er negativt gir du tallet tilbake. Hvis tallet er positivt så legger du til et minustegn og gir tallet tilbake."
     },
     {
-        "navn": "Gidder-ikke-i-dag-funksjonen",
+        "navn": "Gidder-ikke-i-dag-funksjonen 😎",
         "matNavn": "Nullfunksjonen",
         "formel": "y = 0",
         "forkl": "Gi tilbake tallet null. Uansett hvilket tall du får.."
@@ -55,7 +55,7 @@ let funksjoner = [{
         "forkl": "Multipliser tallet du får med -2 (minus 2) og legg deretter til 2."
     },
     {
-        "navn": "Jeg vokser veeeeeldig fort",
+        "navn": "Jeg vokser veeeeeldig fort 🚀",
         "matNavn": "Tredjegradsfunksjon",
         "formel": "y = x^3",
         "forkl": "Opphøy tallet i 3 og gi det tilbake. Husk at tallene beholder fortegnet sitt når de opphøyes i 3 (og andre oddetall)."
