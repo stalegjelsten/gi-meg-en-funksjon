@@ -10,7 +10,7 @@ canvas {
 
 h1 {
     font-family: Josefin Sans;
-    color: #000;
+    /* color: #000; */
     font-size: 40px;
     font-style: normal;
     font-variant: normal;
@@ -20,7 +20,7 @@ h1 {
 
 h3 {
     font-family: Josefin Sans;
-    color: #333;
+    /* color: #333; */
     font-size: 24px;
     font-style: normal;
     font-variant: normal;
@@ -29,7 +29,7 @@ h3 {
 
 p {
     font-family: Josefin Sans;
-    color: #333;
+    /* color: #333; */
     font-size: 18px;
     font-style: normal;
     font-variant: normal;
