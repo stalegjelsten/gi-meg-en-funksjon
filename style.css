@@ -15,7 +15,6 @@ h1 {
     font-style: normal;
     font-variant: normal;
     font-weight: 700;
-    line-height: 26.4px;
 }
 
 h3 {
@@ -25,7 +24,6 @@ h3 {
     font-style: normal;
     font-variant: normal;
     font-weight: 700;
-    line-height: 15.4px;
 }
 
 p {
@@ -35,7 +33,6 @@ p {
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
-    line-height: 20px;
 }
 
 blockquote {
@@ -44,7 +41,6 @@ blockquote {
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
-    line-height: 30px;
 }
 
 pre {
@@ -53,5 +49,4 @@ pre {
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
-    line-height: 18.5667px;
 }
