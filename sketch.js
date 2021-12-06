@@ -1,13 +1,13 @@
 let eqn
 let funksjon
 let funksjoner = [{
-        "navn": "Hermefunksjonen",
+        "navn": "Herme&shy;funk&shy;sjonen",
         "matNavn": "Identitetsfunksjonen",
         "formel": "y=x",
         "forkl": "Gi tilbake det samme tallet."
     },
     {
-        "navn": "Positivitetsfunksjonen",
+        "navn": "Positivitets&shy;funksjonen",
         "matNavn": "Absoluttverdifunksjonen",
         "formel": "y = \\vert x \\vert",
         "forkl": "Hvis tallet er positivt gir du tallet tilbake. Hvis tallet er negativt så tar du bort minustegnet og gir tallet tilbake."
@@ -19,7 +19,7 @@ let funksjoner = [{
         "forkl": "Doble tallet du får og gi det tilbake."
     },
     {
-        "navn": "Negativitetsfunksjonen",
+        "navn": "Negativitets&shy;funksjonen",
         "matNavn": "Den negative absoluttverdifunksjonen",
         "formel": "y = - \\vert x \\vert",
         "forkl": "Hvis tallet er negativt gir du tallet tilbake. Hvis tallet er positivt så legger du til et minustegn og gir tallet tilbake."
