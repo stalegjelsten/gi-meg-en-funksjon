@@ -4,7 +4,11 @@ let pressCount = 0
 let funcNo = 1
 let saturation = 35
 let oldFuncNo = 1
+let bgcolor
+let mouseXColor
+let mouseYColor
 let funksjoner = [{
+
     "navn": "Herme&shy;funk&shy;sjonen",
     "matNavn": "Identitetsfunksjonen",
     "formel": "y=x",
@@ -50,7 +54,7 @@ let funksjoner = [{
     "formel": "y = 2",
     "forkl": "Gi tilbake tallet 2. Uansett hvilket tall du får.",
     "url": "http://google.com/search?y=2",
-    "eqn": "20"
+    "eqn": "10"
 },
 {
     "navn": "Jeg vokser fort",
@@ -66,7 +70,7 @@ let funksjoner = [{
     "formel": "y = 3x - 1",
     "forkl": "Multipliser tallet du får med 3 og trekk deretter fra 1.",
     "url": "http://google.com/search?y=3x-1",
-    "eqn": "3*x-10"
+    "eqn": "3*x-5"
 },
 {
     "navn": "Rett linje som synker",
@@ -74,7 +78,7 @@ let funksjoner = [{
     "formel": "y = -2x + 2",
     "forkl": "Multipliser tallet du får med -2 (minus 2) og legg deretter til 2.",
     "url": "http://google.com/search?y=-2+2",
-    "eqn": "-2*x+20"
+    "eqn": "-2*x+10"
 },
 {
     "navn": "Jeg vokser veeeeeldig fort",
@@ -82,7 +86,7 @@ let funksjoner = [{
     "formel": "y = x^3",
     "forkl": "Opphøy tallet i 3 og gi det tilbake. Husk at tallene beholder fortegnet sitt når de opphøyes i 3 (og andre oddetall).",
     "url": "http://google.com/search?y=x^3",
-    "eqn": "(x/20)**3"
+    "eqn": "(x/10)**3"
 }
 ]
 
@@ -92,6 +96,7 @@ let funksjoner = [{
 
 function setup() {
     createCanvas(windowWidth, windowHeight)
+    colorMode(HSB)
     content = createDiv("").size(width * 3 / 4, height * 3 / 4).style("text-align", "center")
     content.center()
     title = createP("")
@@ -102,14 +107,19 @@ function setup() {
     content.child(mattitle)
     content.child(forklaring)
     content.child(eqn)
+    setShakeThreshold(80)
     noLoop()
-    funksjon = { "navn": "Trykk på skjermen når du er klar", "matNavn": "Si til partneren din: Gi meg en <i>x</i> og jeg skal gi deg en <i>y</i> tilbake ❤️.", "formel": "", "forkl": "" }
+    funksjon = { "navn": "Trykk på skjermen når du er klar", "matNavn": "Si til partneren din: Gi meg en <i>x</i> og jeg skal gi deg en <i>y</i> tilbake ❤️.",
+     "formel": "", "forkl": 
+     "Når du trykker på skjermen så vil du få opp forklaringen på en type matematisk funksjon. La partneren din gi deg en <i>x</i>-verdi. "+ 
+     "Du skal bruke funksjonen du får opp på skjermen til å bestemme hvilken <i>y</i>-verdi du skal gi tilbake." +
+    " Rist på enheten (eller trykk pil opp) for å vise grafen til funksjonen." }
 }
 
 function draw() {
 
-    let mouseYColor = 100 - (1 / 100) * (mouseY / height * 100) * (mouseY / height * 100)
-    let mouseXColor = Math.floor(mouseX/width*360)
+    mouseYColor = 100 - (1 / 100) * (mouseY / height * 100) * (mouseY / height * 100)
+    mouseXColor = Math.floor(mouseX/width*360)
     if (mouseYColor < 55) {
         title.style("color", "#fff")
         mattitle.style("color", "#fff")
@@ -121,8 +131,8 @@ function draw() {
         forklaring.style("color", "#000")
         eqn.style("color", "#000")
     }
-    let c = color("hsb(" + mouseXColor + ", " + saturation + "%, " + mouseYColor + "%)")
-    background(c)
+    bgcolor = color("hsb(" + mouseXColor + ", " + saturation + "%, " + mouseYColor + "%)")
+    background(bgcolor)
 
     title.html("<h1>" + funksjon.navn + "</h1>")
 
@@ -145,17 +155,25 @@ function draw() {
 function drawGraph(eq) {
     push()
     strokeWeight(2)
-    line(width/2, height, width/2, height-400)
-    line(width/2-200, height-200, width/2+200, height-200)
+    line(width/2, height, width/2, height-200)
+    line(width/2-100, height-100, width/2+100, height-100)
+    pop()
+    push()
+    noStroke()
+    fill(0)
+    triangle(width/2-4, height-200, width/2, height-208, width/2+4, height-200)
+    triangle(width/2+100, height-104, width/2+108, height-100, width/2+100, height-96)
+
     pop()
     
     push()
-    stroke("hsb(200, 80%, 80%)")
-    strokeWeight(2)
+    let linecolor = color("hsb(" + (mouseXColor + 180) % 360 + ", " + saturation + "%, " + max((mouseYColor), 30) + "%)")
+    stroke(linecolor)
+    strokeWeight(3)
     noFill()
-    translate(width/2, height-200)
+    translate(width/2, height-100)
     beginShape()
-    for (let x = -100; x < 100; x++) {
+    for (let x = -50; x < 50; x++) {
         vertex(x,-eval(eq))
     }
     endShape()
