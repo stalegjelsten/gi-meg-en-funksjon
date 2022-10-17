@@ -151,7 +151,8 @@ function draw() {
     // }
 
     if (pressCount % 31 == 0 && pressCount != 0) {
-        textSize(00)
+        textSize(150)
+        textAlign(CENTER)
         text("🦇🎃🕷", width / 2 - 150, height - 50)
     }
 
