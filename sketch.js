@@ -62,7 +62,7 @@ let funksjoner = [{
     "formel": "y = x^2",
     "forkl": "Gang tallet du får med seg selv og gi det tilbake.",
     "url": "http://google.com/search?y=x^2",
-    "eqn": "x**2 / 100"
+    "eqn": "x**2 / 25"
 },
 {
     "navn": "Rett linje som stiger",
@@ -109,17 +109,19 @@ function setup() {
     content.child(eqn)
     setShakeThreshold(80)
     noLoop()
-    funksjon = { "navn": "Trykk på skjermen når du er klar", "matNavn": "Si til partneren din: Gi meg en <i>x</i> og jeg skal gi deg en <i>y</i> tilbake ❤️.",
-     "formel": "", "forkl": 
-     "Når du trykker på skjermen så vil du få opp forklaringen på en type matematisk funksjon. La partneren din gi deg en <i>x</i>-verdi. "+ 
-     "Du skal bruke funksjonen du får opp på skjermen til å bestemme hvilken <i>y</i>-verdi du skal gi tilbake." +
-    " Rist på enheten (eller trykk pil opp) for å vise grafen til funksjonen." }
+    funksjon = {
+        "navn": "Trykk på skjermen når du er klar", "matNavn": "Si til partneren din: Gi meg en <i>x</i> og jeg skal gi deg en <i>y</i> tilbake ❤️.",
+        "formel": "", "forkl":
+            "Når du trykker på skjermen så vil du få opp forklaringen på en type matematisk funksjon. La partneren din gi deg en <i>x</i>-verdi. " +
+            "Du skal bruke funksjonen du får opp på skjermen til å bestemme hvilken <i>y</i>-verdi du skal gi tilbake." +
+            " Rist på enheten (eller trykk pil opp) for å vise grafen til funksjonen."
+    }
 }
 
 function draw() {
 
     mouseYColor = 100 - (1 / 100) * (mouseY / height * 100) * (mouseY / height * 100)
-    mouseXColor = Math.floor(mouseX/width*360)
+    mouseXColor = Math.floor(mouseX / width * 360)
     if (mouseYColor < 55) {
         title.style("color", "#fff")
         mattitle.style("color", "#fff")
@@ -142,9 +144,15 @@ function draw() {
 
     katex.render(funksjon.formel, eqn.elt)
 
-    if (pressCount % 24 == 0 && pressCount != 0) {
+    // christmas edition
+    // if (pressCount % 24 == 0 && pressCount != 0) {
+    //     textSize(300)
+    //     text("🎅", width/2-150, height-50)
+    // }
+
+    if (pressCount % 31 == 0 && pressCount != 0) {
         textSize(300)
-        text("🎅", width/2-150, height-50)
+        text("�🎃🦇", width / 2 - 150, height - 50)
     }
 
 
@@ -155,29 +163,29 @@ function draw() {
 function drawGraph(eq) {
     push()
     strokeWeight(2)
-    line(width/2, height, width/2, height-200)
-    line(width/2-100, height-100, width/2+100, height-100)
+    line(width / 2, height, width / 2, height - 200)
+    line(width / 2 - 100, height - 100, width / 2 + 100, height - 100)
     pop()
     push()
     noStroke()
     fill(0)
-    triangle(width/2-4, height-200, width/2, height-208, width/2+4, height-200)
-    triangle(width/2+100, height-104, width/2+108, height-100, width/2+100, height-96)
+    triangle(width / 2 - 4, height - 200, width / 2, height - 208, width / 2 + 4, height - 200)
+    triangle(width / 2 + 100, height - 104, width / 2 + 108, height - 100, width / 2 + 100, height - 96)
 
     pop()
-    
+
     push()
     let linecolor = color("hsb(" + (mouseXColor + 180) % 360 + ", " + saturation + "%, " + max((mouseYColor), 30) + "%)")
     stroke(linecolor)
     strokeWeight(3)
     noFill()
-    translate(width/2, height-100)
+    translate(width / 2, height - 100)
     beginShape()
     for (let x = -50; x < 50; x++) {
-        vertex(x,-eval(eq))
+        vertex(x, -eval(eq))
     }
     endShape()
-    pop() 
+    pop()
 
 }
 
