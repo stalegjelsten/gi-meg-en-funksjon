@@ -151,8 +151,8 @@ function draw() {
     // }
 
     if (pressCount % 31 == 0 && pressCount != 0) {
-        textSize(300)
-        text("�🎃🦇", width / 2 - 150, height - 50)
+        textSize(00)
+        text("🦇🎃🕷", width / 2 - 150, height - 50)
     }
 
 
