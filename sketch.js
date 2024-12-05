@@ -145,16 +145,16 @@ function draw() {
     katex.render(funksjon.formel, eqn.elt)
 
     // christmas edition
-    // if (pressCount % 24 == 0 && pressCount != 0) {
-    //     textSize(300)
-    //     text("🎅", width/2-150, height-50)
-    // }
-
-    if (pressCount % 31 == 0 && pressCount != 0) {
-        textSize(150)
-        textAlign(CENTER)
-        text("🦇🎃🕷", width / 2, height - 50)
+    if (pressCount % 24 == 0 && pressCount != 0) {
+        textSize(300)
+        text("🎅", width/2-150, height-50)
     }
+
+    // if (pressCount % 31 == 0 && pressCount != 0) {
+    //     textSize(150)
+    //     textAlign(CENTER)
+    //     text("🦇🎃🕷", width / 2, height - 50)
+    // }
 
 
     // translate(width/2, height-200)
